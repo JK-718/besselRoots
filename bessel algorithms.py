@@ -9,6 +9,7 @@ def fprime(x):
     return -(scipy.special.jv(1,x))
     
 #Begin code for bisection algorithm to find roots of function
+
 def bisection(a, b, n, e, d):
     c = (a+b)/2
     maxiter = 0
@@ -27,6 +28,7 @@ def bisection(a, b, n, e, d):
     return c, maxiter
 
 #Secant algorithm to find roots
+
 def secant(a, b, n, e, d):
     maxiter = 0
     while abs(f(b))>e and abs(b - a)>d and maxiter != n:      
@@ -42,6 +44,7 @@ def secant(a, b, n, e, d):
     return m, maxiter
 
 #Newton's method to find roots
+
 def newton(x, n, e):
     maxiter = 0
     while  maxiter != n and abs(f(x))>e:  
@@ -70,6 +73,7 @@ x = [3, 6, 10]
 #compare accuracies and computation time
 #Bounds are for bisection and secant
 #Initial guess is for Newton
+
 for i, j, k in zip(a,b,x):
     print("\n Bounds", i, j, "& Initial guess", k)
     for l in e:
@@ -77,5 +81,3 @@ for i, j, k in zip(a,b,x):
         print("Bisection", bisection(i, j, n, l, d))
         print("Secant", secant(i, j, n, l, d))
         print("Newton", newton(k, n, l))
-        
-
